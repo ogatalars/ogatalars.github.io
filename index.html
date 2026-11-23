@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="a" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felipe Ogata · Software Engineer</title>
+<meta name="description" content="Felipe Ogata — Software Engineer: backend, SRE, DevSecOps e AI Engineering.">
+<script>
+  // aplica tema/idioma salvos antes de pintar, para não piscar
+  try {
+    const r = document.documentElement;
+    r.dataset.theme = localStorage.getItem('theme') || 'a';
+    r.dataset.lang = localStorage.getItem('lang') || 'pt';
+  } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="bar" aria-label="Tema e idioma">
+  <div class="wrap bar-inner">
+    <span class="mark">FO<span class="cursor">_</span></span>
+    <div class="switch" role="group" aria-label="Tema">
+      <button data-set-theme="a" title="Códice — dark, Path of Exile">
+        <span lang="pt">Códice</span><span lang="en">Codex</span></button>
+      <button data-set-theme="b" title="Créditos de cinema">
+        <span lang="pt">Créditos</span><span lang="en">Credits</span></button>
+      <button data-set-theme="c" title="Pergaminho minimalista">
+        <span lang="pt">Pergaminho</span><span lang="en">Parchment</span></button>
+      <button data-set-theme="d" title="Claude artifact">Artifact</button>
+    </div>
+    <div class="switch" role="group" aria-label="Idioma">
+      <button data-set-lang="pt">PT</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <div class="doc-chip" aria-hidden="true">◆ felipe-ogata-cv.html</div>
+
+  <header class="hero">
+    <p class="eyebrow">São Paulo, BR · <span lang="pt">em tecnologia desde 2019</span><span lang="en">in tech since 2019</span></p>
+    <h1>Felipe Ogata</h1>
+    <p class="role-line">Software Engineer · Backend · SRE · DevSecOps · AI Engineering</p>
+    <p class="lead">
+      <span lang="pt">Construo sistemas que rodam sozinhos e avisam quando não estão bem — e agentes de IA que ajudam a construí-los.</span>
+      <span lang="en">I build systems that run on their own and tell you when they're not okay — and AI agents that help build them.</span>
+    </p>
+    <ul class="links">
+      <li><a href="https://github.com/ogatalars">GitHub</a></li>
+      <li><a href="https://br.linkedin.com/in/felipe-ogata-821791102">LinkedIn</a></li>
+    </ul>
+    <blockquote class="epigraph">
+      <span lang="pt">“Nada é permanente, exceto a mudança.”</span><span lang="en">“Nothing is permanent except change.”</span>
+      <cite>— Heráclito</cite>
+    </blockquote>
+  </header>
+
+  <section id="origem">
+    <h2><span lang="pt">Origem</span><span lang="en">Origin</span></h2>
+    <p lang="pt">Formado em <strong>Economia</strong> e <strong>Direito</strong>, encontrei meu ofício na tecnologia em <strong>2019</strong> e voltei à faculdade por ele: <strong>Análise e Desenvolvimento de Sistemas</strong>. Comecei escrevendo crawlers — mais de 150 — e hoje sou engenheiro de software focado em backend, infraestrutura e confiabilidade. Economia me deu o olhar para trade-offs; Direito, o hábito de ler a regra antes de agir. Os dois aparecem em todo design que escrevo.</p>
+    <p lang="en">With degrees in <strong>Economics</strong> and <strong>Law</strong>, I found my craft in technology in <strong>2019</strong> and went back to school for it: <strong>Systems Analysis &amp; Development</strong>. I started by writing crawlers — more than 150 of them — and today I'm a software engineer focused on backend, infrastructure and reliability. Economics taught me to reason about trade-offs; Law, to read the rules before acting. Both show up in every design I write.</p>
+  </section>
+
+  <section id="experiencia">
+    <h2><span lang="pt">Experiência</span><span lang="en">Experience</span></h2>
+    <blockquote class="epigraph">
+      <span lang="pt">“O que se põe no caminho torna-se o caminho.”</span><span lang="en">“What stands in the way becomes the way.”</span>
+      <cite>— Marco Aurélio</cite>
+    </blockquote>
+
+    <article class="job">
+      <header>
+        <h3>Software Engineer</h3>
+        <p class="org">Jusbrasil · Data Collection</p>
+      </header>
+      <ul>
+        <li lang="pt"><strong>SRE na prática:</strong> defini SLIs e SLOs (com Sloth, Prometheus e Alertmanager, burn rate multiwindow e error budget) para componentes que não tinham nenhuma métrica — com instrumentação, runbook pareado e deploy via GitOps.</li>
+        <li lang="en"><strong>Hands-on SRE:</strong> defined SLIs and SLOs (Sloth, Prometheus, Alertmanager, multiwindow burn-rate, error budgets) for components that had no metrics at all — with instrumentation, paired runbooks and GitOps delivery.</li>
+        <li lang="pt"><strong>Achei os SLOs que não mediam nada:</strong> alertas em no-op por convenção de nome do exportador OpenTelemetry e runbooks que consultavam regras inexistentes. Cada classe de erro virou validação no CI, não correção pontual.</li>
+        <li lang="en"><strong>Found the SLOs that measured nothing:</strong> alerts silently no-op'd by an OpenTelemetry exporter naming convention, runbooks querying rules that didn't exist. Each class of bug became a CI check, not a one-off fix.</li>
+        <li lang="pt"><strong>Concorrência em worker gRPC assíncrono:</strong> isolei estado entre execuções (<code>ContextVar</code>) e tirei chamadas bloqueantes do event loop. Vazamento de sessão entre execuções caiu de <strong>39% para 0</strong> em mais de 32 mil amostras de produção.</li>
+        <li lang="en"><strong>Concurrency in an async gRPC worker:</strong> isolated per-execution state (<code>ContextVar</code>) and moved blocking calls off the event loop. Cross-execution session leakage dropped from <strong>39% to 0</strong> across 32k+ production samples.</li>
+        <li lang="pt"><strong>Migração de plataforma:</strong> conduzi parte da migração de crawlers de jobs Kubernetes para um worker gRPC — diagnóstico com Prometheus e Loki, separando causa raiz de ruído e evitando rollbacks desnecessários.</li>
+        <li lang="en"><strong>Platform migration:</strong> drove part of the move of crawlers from Kubernetes jobs to a gRPC worker — Prometheus and Loki diagnostics, separating root cause from noise and avoiding needless rollbacks.</li>
+        <li lang="pt"><strong>DevSecOps:</strong> pipeline de SAST no CI (Semgrep, Bandit, Trivy) e correção de vulnerabilidades na cadeia de dependências.</li>
+        <li lang="en"><strong>DevSecOps:</strong> SAST pipeline in CI (Semgrep, Bandit, Trivy) and fixes for supply-chain vulnerabilities.</li>
+        <li lang="pt"><strong>IA na engenharia:</strong> SDD (Spec-Driven Development), workflows multiagente, skills e servidores MCP para o time; evals para medir se a IA realmente ajuda. Plantão primário e postmortems.</li>
+        <li lang="en"><strong>AI in engineering:</strong> SDD (Spec-Driven Development), multi-agent workflows, skills and MCP servers for the team; evals to measure whether AI actually helps. Primary on-call and postmortems.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <header>
+        <h3>Data Acquisition Engineer</h3>
+        <p class="org">Jusbrasil</p>
+      </header>
+      <ul>
+        <li lang="pt">Construí e mantive <strong>mais de 150 crawlers</strong> em Python para tribunais e fontes públicas: anti-bot, proxies, captcha, retentativas e parsing resiliente a mudanças de layout.</li>
+        <li lang="en">Built and maintained <strong>150+ crawlers</strong> in Python for courts and public sources: anti-bot, proxies, captchas, retries and parsing resilient to layout changes.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="arsenal">
+    <h2><span lang="pt">Arsenal</span><span lang="en">Arsenal</span></h2>
+    <blockquote class="epigraph">
+      <span lang="pt">“Esperança não é estratégia.”</span><span lang="en">“Hope is not a strategy.”</span>
+      <cite>— <span lang="pt">lema do</span><span lang="en">motto of the</span> Google SRE Book</cite>
+    </blockquote>
+    <dl class="skills">
+      <div>
+        <dt>AI Engineering</dt>
+        <dd><ul class="tags">
+          <li>Claude · Claude Code</li><li>Gemini (Argon)</li><li>Agent workflows</li><li>Harness</li><li>SDD</li><li>MCP</li><li>Skills</li><li>Multi-agent</li><li>RAG</li><li>Evals</li><li>Guardrails</li><li>Context engineering</li>
+        </ul></dd>
+      </div>
+      <div>
+        <dt>SRE &amp; <span lang="pt">Observabilidade</span><span lang="en">Observability</span></dt>
+        <dd><ul class="tags">
+          <li>SLI · SLO · SLA</li><li>Error budget</li><li>Burn rate</li><li>On-call</li><li>Postmortem</li><li>Runbooks</li><li>Toil</li><li>Prometheus</li><li>Alertmanager</li><li>Sloth</li><li>Grafana</li><li>Loki</li><li>OpenTelemetry</li>
+        </ul></dd>
+      </div>
+      <div>
+        <dt>DevSecOps</dt>
+        <dd><ul class="tags">
+          <li>SAST</li><li>Semgrep</li><li>Bandit</li><li>Trivy</li><li>Supply chain</li><li>OWASP</li><li>CVE triage</li><li>Autonomous pentest</li>
+        </ul></dd>
+      </div>
+      <div>
+        <dt><span lang="pt">Plataforma</span><span lang="en">Platform</span></dt>
+        <dd><ul class="tags">
+          <li>Kubernetes</li><li>Docker</li><li>ArgoCD · GitOps</li><li>HPA</li><li>CI/CD</li><li>GitHub Actions</li><li>GCP</li>
+        </ul></dd>
+      </div>
+      <div>
+        <dt>Backend</dt>
+        <dd><ul class="tags">
+          <li>Python · asyncio</li><li>Go</li><li>gRPC</li><li>Kafka</li><li>REST</li><li>Crawling</li>
+        </ul></dd>
+      </div>
+      <div>
+        <dt>Frontend</dt>
+        <dd><ul class="tags">
+          <li>TypeScript</li><li>React</li><li>Svelte</li>
+        </ul></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="projetos">
+    <h2><span lang="pt">Projetos</span><span lang="en">Projects</span></h2>
+    <blockquote class="epigraph">
+      <span lang="pt">“Somos o que repetidamente fazemos.”</span><span lang="en">“We are what we repeatedly do.”</span>
+      <cite>— Will Durant, <span lang="pt">sobre Aristóteles</span><span lang="en">on Aristotle</span></cite>
+    </blockquote>
+    <div class="items">
+
+      <article class="item" data-rarity="unique">
+        <header>
+          <h3 class="item-name"><a href="https://github.com/ogatalars/codegraph-go">codegraph-go</a></h3>
+          <p class="item-type">Go · MCP Server</p>
+        </header>
+        <ul class="mods">
+          <li lang="pt">Indexa o código num grafo em SQLite</li><li lang="en">Indexes code into a SQLite graph</li>
+          <li lang="pt">Agentes perguntam "quem chama isso?" em 1 chamada</li><li lang="en">Agents ask "who calls this?" in 1 call</li>
+          <li lang="pt">CLI + servidor MCP, binário único, zero CGo</li><li lang="en">CLI + MCP server, single binary, zero CGo</li>
+        </ul>
+        <p class="flavor"><span lang="pt">Menos tokens lendo arquivo, mais tokens pensando.</span><span lang="en">Fewer tokens reading files, more tokens thinking.</span></p>
+      </article>
+
+      <article class="item" data-rarity="rare">
+        <header>
+          <h3 class="item-name"><a href="https://ogatalars.github.io/bdo-profit-radar/">BDO Profit Radar</a></h3>
+          <p class="item-type">JavaScript · GitHub Actions · Pages</p>
+        </header>
+        <ul class="mods">
+          <li lang="pt">Dados ao vivo do mercado do Black Desert</li><li lang="en">Live Black Desert market data</li>
+          <li lang="pt">Snapshot agendado por workflow, custo zero</li><li lang="en">Workflow-scheduled snapshots, zero cost</li>
+          <li lang="pt">Site estático: itens em alta e melhores spots</li><li lang="en">Static site: trending items and best spots</li>
+        </ul>
+        <p class="flavor"><span lang="pt">Economia aplicada, só que com grind.</span><span lang="en">Applied economics, with grinding.</span></p>
+      </article>
+
+      <article class="item" data-rarity="rare">
+        <header>
+          <h3 class="item-name"><a href="https://ogatalars.github.io/guia_software_engineering_teorico/"><span lang="pt">Guia de Engenharia de Software</span><span lang="en">Software Engineering Guide</span></a></h3>
+          <p class="item-type">TypeScript · Quartz</p>
+        </header>
+        <ul class="mods">
+          <li lang="pt">Livros-base de system design, arquitetura e IA</li><li lang="en">Core books on system design, architecture and AI</li>
+          <li lang="pt">Organizados em trilhas para autodidatas</li><li lang="en">Organized into tracks for self-learners</li>
+          <li lang="pt">Em português, com cara de Obsidian</li><li lang="en">In Portuguese, Obsidian-style</li>
+        </ul>
+        <p class="flavor"><span lang="pt">O mapa que eu queria ter tido em 2019.</span><span lang="en">The map I wish I'd had in 2019.</span></p>
+      </article>
+
+      <article class="item" data-rarity="magic">
+        <header>
+          <h3 class="item-name"><a href="https://github.com/ogatalars/extension-pomodoro">extension-pomodoro</a></h3>
+          <p class="item-type">TypeScript · Chrome Extension</p>
+        </header>
+        <ul class="mods">
+          <li lang="pt">Pomodoro direto no navegador</li><li lang="en">Pomodoro right in the browser</li>
+          <li lang="pt">Feito para uso próprio, sem rastreio</li><li lang="en">Built for personal use, no tracking</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="alem">
+    <h2><span lang="pt">Além do código</span><span lang="en">Beyond code</span></h2>
+    <blockquote class="epigraph">
+      <span lang="pt">“Torna-te quem tu és.”</span><span lang="en">“Become who you are.”</span>
+      <cite>— Píndaro, <span lang="pt">via Nietzsche</span><span lang="en">via Nietzsche</span></cite>
+    </blockquote>
+    <p lang="pt"><strong>Filosofia</strong> — estoicos e Nietzsche, para pensar devagar. <strong>Games</strong> — Path of Exile, onde montar build é otimização sob restrição, e Zelda, onde explorar é o objetivo. <strong>Cinema e anime</strong> — porque toda boa história, como todo bom sistema, é sobre o que acontece quando algo dá errado. E <strong>segurança</strong>, por curiosidade de quebrar para entender.</p>
+    <p lang="en"><strong>Philosophy</strong> — the Stoics and Nietzsche, to think slowly. <strong>Games</strong> — Path of Exile, where building is constrained optimization, and Zelda, where exploring is the point. <strong>Cinema and anime</strong> — because every good story, like every good system, is about what happens when something goes wrong. And <strong>security</strong>, out of the urge to break things to understand them.</p>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  <p><span lang="pt">Feito à mão: HTML, CSS e poucas linhas de JS. Sem framework, sem build.</span><span lang="en">Handmade: HTML, CSS and a few lines of JS. No framework, no build.</span></p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  function set(key, value) {
+    root.dataset[key] = value;
+    if (key === 'lang') root.lang = value === 'pt' ? 'pt-BR' : 'en';
+    try { localStorage.setItem(key, value); } catch (e) {}
+    document.querySelectorAll('[data-set-' + key + ']').forEach(b =>
+      b.setAttribute('aria-pressed', b.getAttribute('data-set-' + key) === value));
+  }
+  set('theme', root.dataset.theme);
+  set('lang', root.dataset.lang);
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    if (b.dataset.setTheme) set('theme', b.dataset.setTheme);
+    if (b.dataset.setLang) set('lang', b.dataset.setLang);
+  });
+</script>
+</body>
+</html>
