@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="a" data-lang="pt">
+<html lang="pt-BR" data-theme="c" data-lang="pt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
   // aplica tema/idioma salvos antes de pintar, para não piscar
   try {
     const r = document.documentElement;
-    r.dataset.theme = localStorage.getItem('theme') || 'a';
+    r.dataset.theme = localStorage.getItem('theme') || 'c';
     r.dataset.lang = localStorage.getItem('lang') || 'pt';
   } catch (e) {}
 </script>
@@ -24,12 +24,12 @@
   <div class="wrap bar-inner">
     <span class="mark">FO<span class="cursor">_</span></span>
     <div class="switch" role="group" aria-label="Tema">
-      <button data-set-theme="a" title="Códice — dark, Path of Exile">
-        <span lang="pt">Códice</span><span lang="en">Codex</span></button>
-      <button data-set-theme="b" title="Créditos de cinema">
-        <span lang="pt">Créditos</span><span lang="en">Credits</span></button>
       <button data-set-theme="c" title="Pergaminho minimalista">
         <span lang="pt">Pergaminho</span><span lang="en">Parchment</span></button>
+      <button data-set-theme="b" title="Créditos de cinema">
+        <span lang="pt">Créditos</span><span lang="en">Credits</span></button>
+      <button data-set-theme="a" title="Códice — dark, Path of Exile">
+        <span lang="pt">Códice</span><span lang="en">Codex</span></button>
       <button data-set-theme="d" title="Claude artifact">Artifact</button>
     </div>
     <div class="switch" role="group" aria-label="Idioma">
